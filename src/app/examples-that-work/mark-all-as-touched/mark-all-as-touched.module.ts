@@ -1,17 +1,35 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import {
+  MatFormFieldDefaultOptions,
+  MatFormFieldModule,
+  MAT_FORM_FIELD_DEFAULT_OPTIONS,
+} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ChildComponent } from './child.component';
+import { FormComponent } from './form.component';
 import { MarkAllAsTouchedRoutingModule } from './mark-all-as-touched-routing.module';
-import { MarkAllAsTouchedComponent } from './mark-all-as-touched.component';
+import { ParentComponent } from './parent.component';
 
-
+const appearance: MatFormFieldDefaultOptions = {
+  appearance: 'outline',
+  floatLabel: 'always',
+};
 @NgModule({
-  declarations: [
-    MarkAllAsTouchedComponent
-  ],
+  declarations: [FormComponent, ParentComponent, ChildComponent],
   imports: [
     CommonModule,
-    MarkAllAsTouchedRoutingModule
-  ]
+    ReactiveFormsModule,
+    MarkAllAsTouchedRoutingModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
+  providers: [
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: appearance,
+    },
+  ],
 })
-export class MarkAllAsTouchedModule { }
+export class MarkAllAsTouchedModule {}

@@ -25,3 +25,23 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+# Helpful CLI Commands
+
+## Lazy Loaded Module Generation
+
+- `ng g m --module=app.module --route=theme-changer pages/theme-changer`
+
+# Angular Material Help
+
+## Form Field Appearance
+
+- https://codinglatte.com/posts/angular/angular-material-form-field-appearance/
+
+# ESLint Help
+
+- [Briebug ESLint Schematic](https://blog.briebug.com/blog/convert-angular-project-tslint-eslint)
+
+- https://dev.to/fsystem/settings-linter-in-angular-12-2mon
+
+- [Explicit Function Return Type](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-function-return-type.md)

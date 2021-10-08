@@ -9,7 +9,7 @@ import { FormGroup } from '@angular/forms';
       <ng-container *ngIf="parentForm" [formGroup]="parentForm">
         <mat-form-field floatLabel="always" appearance="outline">
           <mat-label>Child Level Input</mat-label>
-          <input matInput formControlName="childFormControl" required />
+          <input matInput formControlName="childFormControl" />
         </mat-form-field>
       </ng-container>
     </fieldset>

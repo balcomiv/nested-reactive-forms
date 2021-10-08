@@ -14,7 +14,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 
         <app-parent [parentForm]="form"></app-parent>
 
-        <button type="submit">Submit Form</button>
+        <button mat-stroked-button type="submit">Submit Form</button>
       </form>
     </fieldset>
   `,

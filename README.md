@@ -38,6 +38,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - https://codinglatte.com/posts/angular/angular-material-form-field-appearance/
 
+## Mat Error
+
+- [Cross Field Validation](https://itnext.io/materror-cross-field-validators-in-angular-material-7-97053b2ed0cf)
+
+## Custom Form Field Validation Using Mat Error and NgDoCheck() (same as Material team does it)
+
+- https://stackoverflow.com/questions/52523492/angular6-material-custom-form-field-control-with-validation-errors-mat-error
+- https://github.com/angular/components/blob/babfb215c2812f66aa324f3c4b09b85c278b4943/src/material/input/input.ts
+
 ## Nested Form Group Bugs
 
 - https://github.com/udos86/ng-dynamic-forms/issues/987

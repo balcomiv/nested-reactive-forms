@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -28,10 +28,8 @@ import { FormGroup } from '@angular/forms';
   `,
   styles: [],
 })
-export class ParentComponent implements OnInit {
+export class ParentComponent {
   @Input() parentForm?: FormGroup;
 
   constructor() {}
-
-  ngOnInit(): void {}
 }

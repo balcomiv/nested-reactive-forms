@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -44,7 +44,7 @@ import { FormBuilder, Validators } from '@angular/forms';
     `,
   ],
 })
-export class FormComponent implements OnInit {
+export class FormComponent {
   form = this.fb.group({
     formLevelFormControl: ['', Validators.required],
     parentFormControl: ['', Validators.required],
@@ -53,9 +53,7 @@ export class FormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit(): void {}
-
-  onSubmit() {
+  onSubmit(): void {
     this.form.markAllAsTouched();
   }
 }

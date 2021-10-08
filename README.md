@@ -38,6 +38,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - https://codinglatte.com/posts/angular/angular-material-form-field-appearance/
 
+## Nested Form Group Bugs
+
+- https://github.com/udos86/ng-dynamic-forms/issues/987
+
 # ESLint Help
 
 - [Briebug ESLint Schematic](https://blog.briebug.com/blog/convert-angular-project-tslint-eslint)
@@ -45,3 +49,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - https://dev.to/fsystem/settings-linter-in-angular-12-2mon
 
 - [Explicit Function Return Type](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-function-return-type.md)
+- `"@typescript-eslint/explicit-function-return-type": "error"`

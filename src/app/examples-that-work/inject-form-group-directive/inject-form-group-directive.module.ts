@@ -10,9 +10,8 @@ import {
 import { MatInputModule } from '@angular/material/input';
 import { ChildComponent } from './child.component';
 import { FormComponent } from './form.component';
+import { InjectFormGroupDirectiveRoutingModule } from './inject-form-group-directive-routing.module';
 import { ParentComponent } from './parent.component';
-import { ViewProviderRoutingModule } from './view-provider-routing.module';
-
 const appearance: MatFormFieldDefaultOptions = {
   appearance: 'outline',
   floatLabel: 'always',
@@ -22,7 +21,7 @@ const appearance: MatFormFieldDefaultOptions = {
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ViewProviderRoutingModule,
+    InjectFormGroupDirectiveRoutingModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
@@ -34,4 +33,4 @@ const appearance: MatFormFieldDefaultOptions = {
     },
   ],
 })
-export class ViewProviderModule {}
+export class InjectFormGroupDirectiveModule {}

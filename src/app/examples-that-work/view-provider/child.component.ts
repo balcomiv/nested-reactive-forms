@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ControlContainer, FormGroupDirective } from '@angular/forms';
 
 @Component({
@@ -13,6 +13,7 @@ import { ControlContainer, FormGroupDirective } from '@angular/forms';
     </fieldset>
   `,
   styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   viewProviders: [
     { provide: ControlContainer, useExisting: FormGroupDirective },
   ],

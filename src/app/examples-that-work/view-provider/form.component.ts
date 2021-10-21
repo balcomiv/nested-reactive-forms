@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,7 @@ import { FormBuilder, Validators } from '@angular/forms';
     <fieldset>
       <legend>Form Component</legend>
       <form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()">
-        <mat-form-field floatLabel="always" appearance="outline">
+        <mat-form-field>
           <mat-label>Form Level Input</mat-label>
           <input matInput type="text" formControlName="formLevelFormControl" />
         </mat-form-field>
@@ -44,6 +44,7 @@ import { FormBuilder, Validators } from '@angular/forms';
       }
     `,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormComponent {
   form = this.fb.group({

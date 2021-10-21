@@ -7,6 +7,7 @@ const routes: Routes = [
   // { path: '', redirectTo: 'mark-all-as-touched', pathMatch: 'full' },
   // { path: '', redirectTo: 'view-provider', pathMatch: 'full' },
   { path: '', redirectTo: 'inject-form-group-directive', pathMatch: 'full' },
+  // { path: '', redirectTo: 'emitting-child-form-group', pathMatch: 'full' },
   {
     path: 'mark-all-as-touched',
     loadChildren: () =>
@@ -27,6 +28,13 @@ const routes: Routes = [
       import(
         './examples-that-work/inject-form-group-directive/inject-form-group-directive.module'
       ).then((m) => m.InjectFormGroupDirectiveModule),
+  },
+  {
+    path: 'emitting-child-form-group',
+    loadChildren: () =>
+      import(
+        './examples-that-work/emitting-child-form-group/emitting-child-form-group.module'
+      ).then((m) => m.EmittingChildFormGroupModule),
   },
   { path: '**', component: AppComponent },
 ];

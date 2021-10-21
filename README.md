@@ -59,3 +59,19 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - [Explicit Function Return Type](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-function-return-type.md)
 - `"@typescript-eslint/explicit-function-return-type": "error"`
+
+# Nested Reactive Forms
+
+## Lots of good stuff in this one. Kara examples. Removing nested forms. Etc.
+
+- https://dev.to/julianobrasil/writing-nested-recursive-angular-reactive-forms-a-clean-approach-57fk
+
+## Many Ways
+
+### Type Safe!
+
+- https://tomastrajan.medium.com/angular-reactive-sub-forms-type-safe-without-duplication-dbd24225e1e8
+
+### More
+
+- https://www.dotnetsurfers.com/blog/2020/10/11/3-approaches-for-implementing-nested-forms-in-angular/

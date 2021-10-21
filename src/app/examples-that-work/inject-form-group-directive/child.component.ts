@@ -17,20 +17,6 @@ import {
       </mat-form-field>
       <!-- </ng-container> -->
     </fieldset>
-
-    <!-- <p>Form Value:</p>
-    <pre>{{ form.value | json }}</pre>
-
-    <p>valid:</p>
-    <div>{{ form.valid }}</div>
-
-    <p>FormGroupDirective</p>
-
-    <p>Value:</p>
-    <pre>{{ formGroupDirective.value | json }}</pre>
-
-    <p>Submitted:</p>
-    <div>{{ formGroupDirective.submitted }}</div> -->
   `,
   styles: [],
   viewProviders: [

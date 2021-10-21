@@ -7,12 +7,12 @@ import { FormBuilder, Validators } from '@angular/forms';
     <fieldset>
       <legend>Form Component</legend>
       <form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()">
-        <mat-form-field floatLabel="always" appearance="outline">
+        <mat-form-field>
           <mat-label>Form Level Input</mat-label>
           <input matInput type="text" formControlName="formLevelFormControl" />
         </mat-form-field>
 
-        <!-- Nested Parent Form -->
+        <!-- Nested Parent -->
         <app-parent></app-parent>
 
         <button mat-stroked-button type="submit">Submit Form</button>

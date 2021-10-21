@@ -7,7 +7,7 @@ import { FormBuilder, Validators } from '@angular/forms';
     <fieldset>
       <legend>Form Component</legend>
       <form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()">
-        <mat-form-field floatLabel="always" appearance="outline">
+        <mat-form-field>
           <mat-label>Form Level Input</mat-label>
           <input matInput type="text" formControlName="formLevelFormControl" />
         </mat-form-field>
@@ -53,7 +53,5 @@ export class FormComponent {
 
   constructor(private fb: FormBuilder) {}
 
-  onSubmit(): void {
-    this.form.markAllAsTouched();
-  }
+  onSubmit(): void {}
 }

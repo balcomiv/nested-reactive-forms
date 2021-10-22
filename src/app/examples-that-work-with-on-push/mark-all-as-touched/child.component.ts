@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,7 @@ import { FormGroup } from '@angular/forms';
     <fieldset>
       <legend>Child Component</legend>
       <ng-container *ngIf="parentForm" [formGroup]="parentForm">
-        <mat-form-field floatLabel="always" appearance="outline">
+        <mat-form-field>
           <mat-label>Child Level Input</mat-label>
           <input matInput formControlName="childFormControl" />
         </mat-form-field>
@@ -29,6 +29,7 @@ import { FormGroup } from '@angular/forms';
     <div>{{ formGroupDirective.submitted }}</div> -->
   `,
   styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChildComponent {
   @Input() parentForm?: FormGroup;

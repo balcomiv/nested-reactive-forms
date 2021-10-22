@@ -75,3 +75,17 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ### More
 
 - https://www.dotnetsurfers.com/blog/2020/10/11/3-approaches-for-implementing-nested-forms-in-angular/
+
+# Angular API
+
+## Template Variable Reference
+
+### FormGroupDirective also uses 'export as ngForm'
+
+- https://angular.io/api/forms/FormGroupDirective
+
+- https://github.com/angular/angular/blob/master/packages/forms/src/directives/reactive_directives/form_group_directive.ts
+
+# Creating Dynamic Angular Forms
+
+- https://eliteionic.com/tutorials/creating-dynamic-angular-forms-with-json/

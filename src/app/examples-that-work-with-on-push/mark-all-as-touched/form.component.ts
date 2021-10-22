@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   template: `
     <fieldset>
       <legend>Form Component</legend>
-      <form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()" #f="ngForm">
         <mat-form-field>
           <mat-label>Form Level Input</mat-label>
           <input matInput type="text" formControlName="formLevelFormControl" />
@@ -15,16 +15,12 @@ import { FormBuilder, Validators } from '@angular/forms';
         <app-parent [parentForm]="form"></app-parent>
 
         <button mat-stroked-button type="submit">Submit Form</button>
+        <pre>{{ f.submitted | json }}</pre>
       </form>
     </fieldset>
   `,
   styles: [
     `
-      /* mat-form-field {
-        width: 300px;
-        display: block;
-      } */
-
       :host ::ng-deep fieldset {
         width: 500px;
         min-height: 200px;
@@ -43,6 +39,7 @@ import { FormBuilder, Validators } from '@angular/forms';
       }
     `,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormComponent {
   form = this.fb.group({
@@ -54,6 +51,6 @@ export class FormComponent {
   constructor(private fb: FormBuilder) {}
 
   onSubmit(): void {
-    this.form.markAllAsTouched();
+    // this.form.markAllAsTouched();
   }
 }

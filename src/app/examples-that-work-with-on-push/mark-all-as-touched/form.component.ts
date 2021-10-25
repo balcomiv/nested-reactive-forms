@@ -6,7 +6,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   template: `
     <fieldset>
       <legend>Form Component</legend>
-      <form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()" #f="ngForm">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" #f="ngForm">
         <mat-form-field>
           <mat-label>Form Level Input</mat-label>
           <input matInput type="text" formControlName="formLevelFormControl" />

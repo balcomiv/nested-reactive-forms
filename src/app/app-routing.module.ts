@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 const routes: Routes = [
   // { path: '', redirectTo: 'mark-all-as-touched', pathMatch: 'full' },
   // { path: '', redirectTo: 'view-provider', pathMatch: 'full' },
-  { path: '', redirectTo: 'inject-form-group-directive', pathMatch: 'full' },
+  // { path: '', redirectTo: 'inject-form-group-directive', pathMatch: 'full' },
   // { path: '', redirectTo: 'emitting-child-form-group', pathMatch: 'full' },
+  { path: '', redirectTo: 'composite-cva', pathMatch: 'full' },
   {
     path: 'mark-all-as-touched',
     loadChildren: () =>
@@ -35,6 +36,13 @@ const routes: Routes = [
       import(
         './examples-that-work-with-on-push/emitting-child-form-group/emitting-child-form-group.module'
       ).then((m) => m.EmittingChildFormGroupModule),
+  },
+  {
+    path: 'composite-cva',
+    loadChildren: () =>
+      import(
+        './examples-that-work-with-on-push/composite-cva/composite-cva.module'
+      ).then((m) => m.CompositeCvaModule),
   },
   { path: '**', component: AppComponent },
 ];

@@ -74,6 +74,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ### More
 
+- https://indepth.dev/posts/1245/angular-nested-reactive-forms-using-controlvalueaccessors-cvas
+
 - https://www.dotnetsurfers.com/blog/2020/10/11/3-approaches-for-implementing-nested-forms-in-angular/
 
 # Angular API

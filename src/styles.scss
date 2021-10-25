@@ -8,3 +8,20 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+fieldset {
+  width: 500px;
+  min-height: 200px;
+  margin: auto;
+
+  legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+    margin-bottom: 25px;
+  }
+
+  button {
+    margin-top: 25px;
+  }
+}

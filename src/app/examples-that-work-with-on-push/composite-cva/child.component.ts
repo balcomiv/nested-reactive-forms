@@ -4,9 +4,14 @@ import {
   ControlValueAccessor,
   FormControl,
   FormGroup,
+  FormGroupDirective,
   NgControl,
+  ValidationErrors,
+  ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-child',
@@ -21,6 +26,8 @@ import {
       <button type="button" mat-stroked-button (click)="(null)">
         Fire Change Detection
       </button>
+      <p>CVA Error</p>
+      <pre>{{ form.get('childFormControl')?.errors | json }}</pre>
     </app-fieldset-wrapper>
   `,
   styles: [
@@ -33,6 +40,8 @@ import {
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChildComponent implements OnInit, ControlValueAccessor {
+  private destroyed = new Subject<void>();
+
   form = new FormGroup({
     childFormControl: new FormControl('', Validators.required),
   });
@@ -42,7 +51,10 @@ export class ChildComponent implements OnInit, ControlValueAccessor {
   //  NgControl => NgModel, FormControlDirective, FormControlName
   //  See images in assets 'ng-control-hierarchy'
   //  @Self in case somebody wraps your form control with their own form control. Don't want to grab theirs.
-  constructor(@Self() public ngControl: NgControl) {
+  constructor(
+    @Self() public ngControl: NgControl,
+    private formGroupDirective: FormGroupDirective
+  ) {
     //  It's our job to make sure NgControl is set up with the right valueAccessor and validators
     ngControl.valueAccessor = this;
   }
@@ -50,6 +62,13 @@ export class ChildComponent implements OnInit, ControlValueAccessor {
   ngOnInit(): void {
     //  It's our job to make sure NgControl is set up with the right valueAccessor and validators
     this.addValidators(this.ngControl.control);
+
+    this.formGroupDirective.ngSubmit
+      .pipe(takeUntil(this.destroyed))
+      .subscribe(() => {
+        console.log('Form Submitted!');
+        this.form.markAllAsTouched();
+      });
   }
 
   private addValidators(control: AbstractControl | null): void {
@@ -58,16 +77,21 @@ export class ChildComponent implements OnInit, ControlValueAccessor {
       return;
     }
 
-    /*
     //  Example of how to compose validators already set, with more validators imposed by this component (like required)
-    const validators = control?.validator
-      ? [control.validator, Validators.required]
-      : Validators.required;
+    // const validators = control?.validator
+    //   ? [control.validator, this.customValidator]
+    //   : this.customValidator;
 
-    //  Set new validators and update the UI
-    control.setValidators(validators);
-    control.updateValueAndValidity();
-    */
+    // //  Set new validators and update the UI
+    // control.setValidators(validators);
+    // control.updateValueAndValidity();
+  }
+
+  customValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const error = true;
+      return error ? { customError: { value: control.value } } : null;
+    };
   }
 
   //#region ControlValueAccessor Implementation

@@ -25,3 +25,9 @@ fieldset {
     margin-top: 25px;
   }
 }
+
+// Global style for easy flexbox
+.container {
+  display: flex;
+  justify-content: space-between;
+}

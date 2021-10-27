@@ -10,24 +10,31 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   template: `
     <app-fieldset-wrapper title="Form Component">
       <form [formGroup]="form" (ngSubmit)="onSubmit()" #f="ngForm">
-        <mat-form-field>
-          <mat-label>Form Component</mat-label>
-          <input type="text" matInput formControlName="formLevelFormControl" />
-        </mat-form-field>
+        <div class="container">
+          <mat-form-field>
+            <mat-label>Form Component</mat-label>
+            <input
+              type="text"
+              matInput
+              formControlName="formLevelFormControl"
+            />
+          </mat-form-field>
+
+          <!-- Form Metadata -->
+          <app-form-meta-data
+            class="metadata"
+            [form]="form"
+            [formDirective]="f"
+          >
+          </app-form-meta-data>
+        </div>
 
         <app-child formControlName="childFormControl"></app-child>
 
         <button mat-stroked-button type="submit">Submit Form</button>
 
-        <p>Submitted:</p>
-        <pre>{{ f.submitted | json }}</pre>
-
-        <p>Form Valid:</p>
-        <pre>{{ f.valid }}</pre>
-        <pre>{{ form.valid }}</pre>
-
-        <p>Child Form Control Error</p>
-        <pre>{{ form.get('childFormControl')?.errors | json }}</pre>
+        <!-- <p>Child Form Control Error</p>
+        <pre>{{ form.get('childFormControl')?.errors | json }}</pre> -->
       </form>
     </app-fieldset-wrapper>
   `,

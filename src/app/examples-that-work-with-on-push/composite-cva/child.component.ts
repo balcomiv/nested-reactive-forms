@@ -18,16 +18,22 @@ import { takeUntil } from 'rxjs/operators';
     <app-fieldset-wrapper title="Child Component">
       <!-- <mat-form-field *ngIf="parentFormGroup" [formGroup]="parentFormGroup"> -->
       <!-- <mat-form-field formGroupName="childFormGroup"> -->
-      <mat-form-field [formGroup]="form">
-        <mat-label>Child Level Input</mat-label>
-        <input type="text" matInput formControlName="childFormControl" />
-      </mat-form-field>
+      <div class="container">
+        <mat-form-field [formGroup]="form" #f="ngForm">
+          <mat-label>Child Level Input</mat-label>
+          <input type="text" matInput formControlName="childFormControl" />
+        </mat-form-field>
+        <!-- Form Metadata -->
+        <app-form-meta-data
+          class="metadata"
+          [form]="form"
+          [formDirective]="f"
+        ></app-form-meta-data>
+      </div>
+
       <button type="button" mat-stroked-button (click)="(null)">
         Fire Change Detection
       </button>
-
-      <p>CVA Error</p>
-      <pre>{{ form.get('childFormControl')?.errors | json }}</pre>
     </app-fieldset-wrapper>
   `,
   styles: [

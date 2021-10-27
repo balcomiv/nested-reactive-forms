@@ -92,7 +92,7 @@ export class ChildComponent implements OnInit, ControlValueAccessor {
 
   /** The form control validator for the date filter. */
   customValidator(control: AbstractControl): ValidationErrors | null {
-    const error = false; // You would do your custom validation here
+    const error = true; // You would do your custom validation here
     return error ? { lcsDatepickerFilter: true } : null;
   }
 

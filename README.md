@@ -62,6 +62,19 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # Nested Reactive Forms
 
+## Github Issues (Kara, Material ErrorStateMatcher, FormDirective.submitted not propagating)
+
+- https://stackoverflow.com/questions/53322974/nested-reactiveforms-controls-dont-get-ngsubmit-event
+- https://github.com/angular/angular/issues/21263#issuecomment-357074997
+- https://github.com/angular/angular/issues/21823
+- https://github.com/angular/components/issues/9007
+
+- https://github.com/angular/angular/issues/21263 (custFormGroupDirective)(Kara's response, etc.)
+- https://github.com/udos86/ng-dynamic-forms/issues/987
+
+- https://stackblitz.com/edit/angular-material2-issue-ttt1jk?file=app%2Fapp.component.html (material dynamic form)
+- https://github.com/udos86/ng-dynamic-forms
+
 ## Lots of good stuff in this one. Kara examples. Removing nested forms. Etc.
 
 - https://dev.to/julianobrasil/writing-nested-recursive-angular-reactive-forms-a-clean-approach-57fk
@@ -79,6 +92,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - https://www.dotnetsurfers.com/blog/2020/10/11/3-approaches-for-implementing-nested-forms-in-angular/
 
 - https://dev.to/julianobrasil/writing-nested-recursive-angular-reactive-forms-a-clean-approach-57fk
+
+### NetBasal Example
+
+- https://netbasal.com/make-your-angular-forms-error-messages-magically-appear-1e32350b7fa5
 
 # Angular API
 

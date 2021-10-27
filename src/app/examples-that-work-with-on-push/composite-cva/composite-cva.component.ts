@@ -18,7 +18,16 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
         <app-child formControlName="childFormControl"></app-child>
 
         <button mat-stroked-button type="submit">Submit Form</button>
+
+        <p>Submitted:</p>
         <pre>{{ f.submitted | json }}</pre>
+
+        <p>Form Valid:</p>
+        <pre>{{ f.valid }}</pre>
+        <pre>{{ form.valid }}</pre>
+
+        <p>Child Form Control Error</p>
+        <pre>{{ form.get('childFormControl')?.errors | json }}</pre>
       </form>
     </app-fieldset-wrapper>
   `,

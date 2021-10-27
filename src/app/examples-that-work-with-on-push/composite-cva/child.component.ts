@@ -7,7 +7,6 @@ import {
   FormGroupDirective,
   NgControl,
   ValidationErrors,
-  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { Subject } from 'rxjs';
@@ -26,6 +25,7 @@ import { takeUntil } from 'rxjs/operators';
       <button type="button" mat-stroked-button (click)="(null)">
         Fire Change Detection
       </button>
+
       <p>CVA Error</p>
       <pre>{{ form.get('childFormControl')?.errors | json }}</pre>
     </app-fieldset-wrapper>
@@ -78,20 +78,22 @@ export class ChildComponent implements OnInit, ControlValueAccessor {
     }
 
     //  Example of how to compose validators already set, with more validators imposed by this component (like required)
-    // const validators = control?.validator
-    //   ? [control.validator, this.customValidator]
-    //   : this.customValidator;
+    const validators = control?.validator
+      ? [control.validator, this.customValidator]
+      : this.customValidator;
 
-    // //  Set new validators and update the UI
-    // control.setValidators(validators);
+    //  Set new validators and update the UI
+    control.setValidators(validators);
+    control.updateValueAndValidity();
+
+    // control.setValidators(this.customValidator);
     // control.updateValueAndValidity();
   }
 
-  customValidator(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      const error = true;
-      return error ? { customError: { value: control.value } } : null;
-    };
+  /** The form control validator for the date filter. */
+  customValidator(control: AbstractControl): ValidationErrors | null {
+    const error = false; // You would do your custom validation here
+    return error ? { lcsDatepickerFilter: true } : null;
   }
 
   //#region ControlValueAccessor Implementation

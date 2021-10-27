@@ -7,15 +7,29 @@ import { FormBuilder, Validators } from '@angular/forms';
     <fieldset>
       <legend>Form Component</legend>
       <form [formGroup]="form" (ngSubmit)="onSubmit()" #f="ngForm">
-        <mat-form-field>
-          <mat-label>Form Level Input</mat-label>
-          <input matInput type="text" formControlName="formLevelFormControl" />
-        </mat-form-field>
+        <div class="container">
+          <mat-form-field>
+            <mat-label>Form Level Input</mat-label>
+            <input
+              matInput
+              type="text"
+              formControlName="formLevelFormControl"
+            />
+          </mat-form-field>
 
+          <!-- Form Metadata -->
+          <app-form-meta-data
+            class="metadata"
+            [form]="form"
+            [formDirective]="f"
+          ></app-form-meta-data>
+        </div>
+
+        <!-- Nested Component -->
         <app-parent [parentForm]="form"></app-parent>
 
+        <!-- Form Submit -->
         <button mat-stroked-button type="submit">Submit Form</button>
-        <pre>{{ f.submitted | json }}</pre>
       </form>
     </fieldset>
   `,
@@ -36,6 +50,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 
       button {
         margin-top: 25px;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-between;
       }
     `,
   ],

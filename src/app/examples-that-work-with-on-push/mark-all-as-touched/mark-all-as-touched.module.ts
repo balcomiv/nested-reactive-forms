@@ -8,6 +8,7 @@ import {
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
 } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { UiModule } from '../../shared/ui/ui.module';
 import { ChildComponent } from './child.component';
 import { FormComponent } from './form.component';
 import { MarkAllAsTouchedRoutingModule } from './mark-all-as-touched-routing.module';
@@ -26,6 +27,7 @@ const appearance: MatFormFieldDefaultOptions = {
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    UiModule,
   ],
   providers: [
     {

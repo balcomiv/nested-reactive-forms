@@ -16,29 +16,32 @@ import { FormGroup, FormGroupDirective } from '@angular/forms';
     <fieldset>
       <legend>Parent Component</legend>
       <ng-container *ngIf="parentForm" [formGroup]="parentForm" #f="ngForm">
-        <mat-form-field>
-          <mat-label>Parent Level Input</mat-label>
-          <input matInput formControlName="parentFormControl" />
-        </mat-form-field>
+        <div class="container">
+          <mat-form-field>
+            <mat-label>Parent Level Input</mat-label>
+            <input matInput formControlName="parentFormControl" />
+          </mat-form-field>
+
+          <!-- Form Metadata -->
+          <app-form-meta-data
+            class="metadata"
+            [form]="parentForm"
+            [formDirective]="f"
+          ></app-form-meta-data>
+        </div>
+
         <app-child [parentForm]="parentForm"></app-child>
-        <pre>{{ f.submitted }}</pre>
-        <pre>{{ formGroupDirective?.submitted }}</pre>
-        <pre>{{ parentFormGroupDirective.submitted }}</pre>
       </ng-container>
     </fieldset>
-
-    <ng-container *ngIf="false && parentForm">
-      <p>Form Value:</p>
-      <pre>{{ parentForm.value | json }}</pre>
-
-      <p>valid:</p>
-      <div>{{ parentForm.valid }}</div>
-
-      <!-- <p>Submitted:</p>
-      <div>{{ formSubmitted }}</div> -->
-    </ng-container>
   `,
-  styles: [],
+  styles: [
+    `
+      .container {
+        display: flex;
+        justify-content: space-between;
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ParentComponent implements AfterViewInit {

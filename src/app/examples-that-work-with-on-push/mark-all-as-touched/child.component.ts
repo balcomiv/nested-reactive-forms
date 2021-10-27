@@ -6,29 +6,34 @@ import { FormGroup } from '@angular/forms';
   template: `
     <fieldset>
       <legend>Child Component</legend>
-      <ng-container *ngIf="parentForm" [formGroup]="parentForm">
+      <div
+        class="container"
+        *ngIf="parentForm"
+        [formGroup]="parentForm"
+        #f="ngForm"
+      >
         <mat-form-field>
           <mat-label>Child Level Input</mat-label>
           <input matInput formControlName="childFormControl" />
         </mat-form-field>
-      </ng-container>
+
+        <!-- Form Metadata -->
+        <app-form-meta-data
+          class="metadata"
+          [form]="parentForm"
+          [formDirective]="f"
+        ></app-form-meta-data>
+      </div>
     </fieldset>
-
-    <!-- <p>Form Value:</p>
-    <pre>{{ form.value | json }}</pre>
-
-    <p>valid:</p>
-    <div>{{ form.valid }}</div>
-
-    <p>FormGroupDirective</p>
-
-    <p>Value:</p>
-    <pre>{{ formGroupDirective.value | json }}</pre>
-
-    <p>Submitted:</p>
-    <div>{{ formGroupDirective.submitted }}</div> -->
   `,
-  styles: [],
+  styles: [
+    `
+      .container {
+        display: flex;
+        justify-content: space-between;
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChildComponent {

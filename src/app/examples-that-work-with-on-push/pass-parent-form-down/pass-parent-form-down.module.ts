@@ -6,20 +6,21 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { UiModule } from '../../shared/ui/ui.module';
 import { ChildComponent } from './child.component';
-import { EmittingChildFormGroupRoutingModule } from './emitting-child-form-group-routing.module';
 import { FormComponent } from './form.component';
 import { NestedSubFormDirective } from './nested-sub-form.directive';
+import { PassParentFormDownRoutingModule } from './pass-parent-form-down-routing.module';
 
 @NgModule({
   declarations: [FormComponent, ChildComponent, NestedSubFormDirective],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    EmittingChildFormGroupRoutingModule,
+    PassParentFormDownRoutingModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     UiModule,
+    // FormHelperModule,
   ],
 })
-export class EmittingChildFormGroupModule {}
+export class PassParentFormDownModule {}

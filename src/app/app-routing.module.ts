@@ -44,6 +44,13 @@ const routes: Routes = [
         './examples-that-work-with-on-push/composite-cva/composite-cva.module'
       ).then((m) => m.CompositeCvaModule),
   },
+  {
+    path: 'pass-parent-form-down',
+    loadChildren: () =>
+      import(
+        './examples-that-work-with-on-push/pass-parent-form-down/pass-parent-form-down.module'
+      ).then((m) => m.PassParentFormDownModule),
+  },
   { path: '**', component: AppComponent },
 ];
 

@@ -1,12 +1,8 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-} from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-composite-cva',
+  selector: 'app-form',
   template: `
     <app-fieldset-wrapper title="Form Component">
       <form [formGroup]="form" (ngSubmit)="onSubmit()" #f="ngForm">
@@ -30,7 +26,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
         </div>
 
         <!-- Child Component -->
-        <app-child formControlName="childFormControl"></app-child>
+        <!-- <app-child [parentForm]="form"></app-child> -->
+        <app-child></app-child>
 
         <button mat-stroked-button type="submit">Submit Form</button>
 
@@ -53,20 +50,16 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CompositeCvaComponent {
-  form = new FormGroup({
-    formLevelFormControl: new FormControl('', Validators.required),
-    childFormControl: new FormControl(''),
-    // childFormGroup: new FormGroup({
-    //   childFormControl: new FormControl('', Validators.required),
-    // }),
+export class FormComponent {
+  form = this.fb.group({
+    formLevelFormControl: ['', Validators.required],
+    parentFormControl: ['', Validators.required],
+    childFormControl: ['', Validators.required],
   });
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(private fb: FormBuilder) {}
 
   onSubmit(): void {
-    console.log(`${this.constructor.name} - Submitted`);
     // this.form.markAllAsTouched();
-    // this.cd.detectChanges();
   }
 }

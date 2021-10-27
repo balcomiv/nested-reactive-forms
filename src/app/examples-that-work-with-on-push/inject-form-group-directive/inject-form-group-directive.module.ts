@@ -8,6 +8,7 @@ import {
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
 } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { FormHelperModule } from '../../shared/utilities/form-helper/form-helper.module';
 import { ChildComponent } from './child.component';
 import { FormComponent } from './form.component';
 import { InjectFormGroupDirectiveRoutingModule } from './inject-form-group-directive-routing.module';
@@ -25,6 +26,7 @@ const appearance: MatFormFieldDefaultOptions = {
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    FormHelperModule,
   ],
   providers: [
     {

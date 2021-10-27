@@ -1,42 +1,45 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
   template: `
-    <fieldset>
-      <legend>Form Component</legend>
-      <form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()">
-        <mat-form-field>
-          <mat-label>Form Level Input</mat-label>
-          <input matInput type="text" formControlName="formLevelFormControl" />
-        </mat-form-field>
+    <app-fieldset-wrapper title="Form Component">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" #f="ngForm">
+        <div class="container">
+          <mat-form-field>
+            <mat-label>Form Component</mat-label>
+            <input
+              type="text"
+              matInput
+              formControlName="formLevelFormControl"
+            />
+          </mat-form-field>
 
-        <!-- Nested Parent -->
-        <app-parent></app-parent>
+          <!-- Form Metadata -->
+          <app-form-meta-data
+            class="metadata"
+            [form]="form"
+            [formDirective]="f"
+          >
+          </app-form-meta-data>
+        </div>
+
+        <!-- Child Component -->
+        <app-child (childFormGroup)="updateChildFormGroup($event)"></app-child>
 
         <button mat-stroked-button type="submit">Submit Form</button>
+
+        <!-- <p>Child Form Control Error</p>
+        <pre>{{ form.get('childFormControl')?.errors | json }}</pre> -->
       </form>
-    </fieldset>
+    </app-fieldset-wrapper>
   `,
   styles: [
     `
-      /* mat-form-field {
-        width: 300px;
+      :host {
         display: block;
-      } */
-
-      :host ::ng-deep fieldset {
-        width: 500px;
-        min-height: 200px;
-        margin: auto;
-
-        legend {
-          background-color: #000;
-          color: #fff;
-          padding: 3px 6px;
-          margin-bottom: 25px;
-        }
+        margin-top: 50px;
       }
 
       button {
@@ -49,10 +52,18 @@ export class FormComponent {
   form = this.fb.group({
     formLevelFormControl: ['', Validators.required],
     parentFormControl: ['', Validators.required],
-    childFormControl: ['', Validators.required],
+    // childFormControl: ['', Validators.required],
+    childFormGroup: this.fb.group({}), // Not the same as in the child component
   });
 
   constructor(private fb: FormBuilder) {}
 
-  onSubmit(): void {}
+  updateChildFormGroup(value: FormGroup): void {
+    // const val = this.form.get('childFormGroup')
+    this.form.controls.childFormGroup = value;
+  }
+
+  onSubmit(): void {
+    // this.form.markAllAsTouched();
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormGroup, FormGroupDirective } from '@angular/forms';
 
 @Component({
@@ -11,7 +11,7 @@ import { FormGroup, FormGroupDirective } from '@angular/forms';
           <mat-label>Parent Level Input</mat-label>
           <input matInput formControlName="parentFormControl" />
         </mat-form-field>
-        <app-child [parentForm]="parentForm"></app-child>
+        <!-- <app-child [parentForm]="parentForm"></app-child> -->
       </ng-container>
     </fieldset>
 
@@ -27,6 +27,7 @@ import { FormGroup, FormGroupDirective } from '@angular/forms';
     </ng-container>
   `,
   styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ParentComponent implements OnInit {
   parentForm: FormGroup | null = null;

@@ -8,7 +8,8 @@ const routes: Routes = [
   // { path: '', redirectTo: 'view-provider', pathMatch: 'full' },
   // { path: '', redirectTo: 'inject-form-group-directive', pathMatch: 'full' },
   // { path: '', redirectTo: 'emitting-child-form-group', pathMatch: 'full' },
-  { path: '', redirectTo: 'composite-cva', pathMatch: 'full' },
+  // { path: '', redirectTo: 'composite-cva', pathMatch: 'full' },
+  { path: '', redirectTo: 'pass-parent-form-down', pathMatch: 'full' },
   {
     path: 'mark-all-as-touched',
     loadChildren: () =>

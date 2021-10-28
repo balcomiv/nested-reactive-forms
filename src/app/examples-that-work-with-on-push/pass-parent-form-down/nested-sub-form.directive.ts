@@ -23,7 +23,6 @@ export class NestedSubFormDirective implements OnDestroy {
     @Self() private formGroupDirective: FormGroupDirective,
     private changeDetectorRef: ChangeDetectorRef
   ) {
-    // alert('hey');
     console.log('parentFormGroupDirective: ', parentFormGroupDirective);
     console.log('myFormGroupDirective: ', formGroupDirective);
 
